@@ -1,0 +1,43 @@
+@page "/teams"
+@inject HttpClient Http
+@inject TeamService teamService
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Team Members</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in teams)
+        {
+            <tr>
+                <td>@team.Name</td>
+                @* <td>
+                    @foreach (var member in team.Members)
+                    {
+                        <p>@member.Name</p>
+                    }
+                </td> *@
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Team> teams = new List<Team>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Call the TeamService to fetch the list of teams from the API
+            teams = await teamService.GetTeams();
+        }
+        catch (Exception ex)
+        {
+            // Handle any exceptions (e.g., log the error, display an error message to the user)
+        }
+    }
+}

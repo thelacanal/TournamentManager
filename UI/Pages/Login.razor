@@ -1,0 +1,13 @@
+@* login page with google oauth *@
+@page "/login" 
+
+<h1> Login</h1>
+<RemoteAuthenticatorView >
+    <button>Sign In with Google</button>
+</RemoteAuthenticatorView>
+
+@* <GoogleAuth OnAuthenticationSuccess="OnGoogleSignInSuccess" OnAuthenticationFailed="OnGoogleSignInFailed" /> *@
+
+@* <GoogleSignIn OnSuccess="HandleGoogleSignInSuccess" OnFailure="HandleGoogleSignInFailure">
+    <button>Sign In with Google</button>
+</GoogleSignIn> *@
